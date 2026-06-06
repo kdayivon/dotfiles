@@ -15,6 +15,7 @@ map('n', '<C-c>', ':nohl<CR>', { desc = "clear search highlighting", silent = tr
 map('v', 'J', ":m '>+1<CR>gv=gv", { desc = "moves lines down in visual"})
 map('v', 'K', ":m '<-2<CR>gv=gv", { desc = "moves lines up in visual"})
 map('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], {desc = "replace word cursor"})
+map('t', '<Esc>', [[<C-\><C-n>]], { desc = 'exit terminal mode' })
 
 -- neo-tree keymaps
 map('n', '<leader>e', ':Neotree toggle<CR>')
@@ -26,4 +27,14 @@ map('n', '<leader>ff', ':Telescope find_files<CR>')
 map('n', '<leader>gg', '<cmd>tabnew | Git | only<CR>', {desc = 'fugitive full page new tab'})
 map('n', '<leader>gd', '<cmd>Gvdiffsplit<CR>', { desc = "git diff split"})
 
+-- barbar keymaps
+local opts = { noremap = true, silent = true }
+map('n', '<A-h>', '<Cmd>BufferPrevious<CR>', opts)
+map('n', '<A-l>', '<Cmd>BufferNext<CR>', opts)
+map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
+map('n', '<A-&>', '<Cmd>BufferGoto 1<CR>', opts)
+map('n', '<A-é>', '<Cmd>BufferGoto 2<CR>', opts)
+map('n', '<A-">', '<Cmd>BufferGoto 3<CR>', opts)
+map('n', '<A-!>', '<Cmd>BufferGoto 4<CR>', opts)
+map('n', '<A-ç>', '<Cmd>BufferGoto 5<CR>', opts)
 
