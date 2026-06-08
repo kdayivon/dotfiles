@@ -29,11 +29,11 @@ map('n', '<leader>gd', '<cmd>Gvdiffsplit<CR>', { desc = "git diff split"})
 
 -- barbar keymaps
 local opts = { noremap = true, silent = true }
-map('n', '<A-h>', '<Cmd>BufferPrevious<CR>', opts)
-map('n', '<A-l>', '<Cmd>BufferNext<CR>', opts)
-map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts)
-map('n', '<A-&>', '<Cmd>BufferGoto 1<CR>', opts)
-map('n', '<A-é>', '<Cmd>BufferGoto 2<CR>', opts)
+map('n', '<A-h>', '<Cmd>BufferPrevious<CR>', opts, {desc = "go to previous tab"})
+map('n', '<A-l>', '<Cmd>BufferNext<CR>', opts, {desc = "go to previous tab"})
+map('n', '<A-c>', '<Cmd>BufferClose<CR>', opts, {desc = "close current tab"})
+map('n', '<A-&>', '<Cmd>BufferGoto 1<CR>', opts, {desc = "go to 1 tab"})
+map('n', '<A-é>', '<Cmd>BufferGoto 2<CR>', opts, {desc = "go to 2 tab"})
 map('n', '<A-">', '<Cmd>BufferGoto 3<CR>', opts)
 map('n', '<A-!>', '<Cmd>BufferGoto 4<CR>', opts)
 map('n', '<A-ç>', '<Cmd>BufferGoto 5<CR>', opts)
