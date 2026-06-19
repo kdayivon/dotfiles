@@ -21,3 +21,17 @@ vim.opt.scrolloff = 10
 vim.opt.completeopt = "menuone,noselect,fuzzy,nosort"
 vim.opt.shortmess:append("c")
 
+-- wezterm window padding
+local function set_user_var(name, value)
+  if vim.env.TERM_PROGRAM == 'WezTerm' or os.getenv('TERM'):find('wezterm') then
+    io.write(string.format('\027]1337;SetUserVar=%s=%s\027\\', name, vim.base64.encode(value)))
+  end
+end
+
+vim.api.nvim_create_autocmd('VimEnter', {
+  callback = function() set_user_var('IN_NEOVIM', '1') end,
+})
+
+vim.api.nvim_create_autocmd('VimLeave', {
+  callback = function() set_user_var('IN_NEOVIM', '0') end,
+})
