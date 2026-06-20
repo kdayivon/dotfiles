@@ -26,4 +26,8 @@ sync_back nvim
 sync_back hypr
 sync_back waybar
 sync_back neofetch
+sync_back rofi
+sync_back fish
+sync_back swaync
+
 

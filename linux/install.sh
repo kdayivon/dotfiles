@@ -7,3 +7,4 @@ ln -sf "$ROOT/linux/nvim" ~/.config/nvim
 ln -sf "$ROOT/linux/hypr" ~/.config/hypr
 ln -sf "$ROOT/linux/neofetch" ~/.config/neofetch
 ln -sf "$ROOT/linux/waybar" ~/.config/waybar
+ln -sf "$ROOT/linux/rofi" ~/.config/rofi

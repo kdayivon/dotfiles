@@ -1,28 +1,28 @@
 * {
   border: none;
   border-radius: 0px;
-  font-family: SauceCodePro Nerd Font;
+  font-family: JetBrainsMono Nerd Font;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 13px;
   min-height: 0;
 }
 
 window#waybar {
-  background: rgba(29, 32, 33, 1.0);
-  color: #ebdbb2;
+  background: rgba(50, 48, 47, 1.0);
 }
 
 tooltip {
-  background: #282828;
+  background: #3C3836;
   border-radius: 10px;
   border-width: 2px;
   border-style: solid;
-  border-color: #1d2021;
+  border-color: #EBDBB2;
 }
+
 #workspaces button {
   padding: 0 0.6em;
-  color: #504945;
-  border-radius: 6px;
+  color: #FABD2F;       /* unfocused number */
+  border-radius: 2px;
   margin-right: 2px;
   margin-left: 2px;
   margin-top: 2px;
@@ -30,12 +30,12 @@ tooltip {
 }
 
 #workspaces button.active {
-  color: #ebdbb2;
-  background: #4e635b;
+  color: #D65D0E;       /* focused number */
+  background: #32302F;  /* active button background */
 }
 
 #workspaces button.focused {
-  color: #ebdbb2;
+  color: #D8A657;
   background: #4e635b;
 }
 
@@ -45,19 +45,17 @@ tooltip {
 }
 
 #workspaces button:hover {
-  background: #4e635b;
-  color: #ebdbb2;
+  background: #3C3836;
+  color: #D8A657;
 }
 
 #custom-weather,
-#custom-power,
-#date,
-#clock,
+#network,
 #pulseaudio,
-#custom-weather
-#workspaces,
+#battery,
+#custom-weather,
 #tray {
-  background: #32302f;
+  background: #3C3836;
   padding: 0 0.6em;
   margin-right: 4px;
   margin-left: 4px;
@@ -71,23 +69,46 @@ tooltip {
 }
 
 #network {
-  color: #ebdbb2;
+  color: #D8A657;
   margin-right: 6px;
 }
 
 #pulseaudio {
   margin-right: 6px;
-  color: #ebdbb2;
+  color: #89B482;
+}
+
+#battery {
+  margin-right: 6px;
+  color: #D3869B;
+}
+
+#custom-notification {
+  color: #EBDBB2;
+  margin-right: 6px;
+  margin-left: 6px;
 }
 
 #custom-power {
   color: #fb4934;
-  background: #32302f;
+  margin-right: 8px;
+  margin-left: 8px;
 }
 
-#clock {
-  color: #ebdbb2;
+#network {
+  color: #7DAEA3;
   margin-right: 6px;
+}
+
+#clock.time {
+  color: #FABD2F;
+  margin-right: 6px;
+}
+
+#clock.date {
+  color: #FABD2F;
+  margin-right: 6px;
+  margin-left: 6px;
 }
 
 #taskbar {
@@ -98,7 +119,7 @@ tooltip {
   margin-top: 4px;
   margin-bottom: 4px;
   border-radius: 6px;
-  color: #ebdbb2;
+  color: #D8A657;
 }
 
 #taskbar button {
@@ -117,7 +138,7 @@ tooltip {
 #taskbar button.active {
   border-radius: 6px;
   background: #4e635b;
-  color: #ebdbb2;
+  color: #D8A657;
 }
 
 #custom-weather {

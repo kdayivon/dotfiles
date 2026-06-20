@@ -3,7 +3,7 @@
 ---------------------
 -- Set programs that you use
 local terminal    = "wezterm"
-local fileManager = "dolphin"
+local fileManager = "nautilus"
 
 ---------------------
 ---- KEYBINDINGS ----
@@ -20,8 +20,8 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("ALT + S", hl.dsp.exec_cmd("pkill rofi || rofi -show drun"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill waybar || /usr/bin/waybar &"))
-hl.bind(mainMod .. " + up", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill waybar && pkill swaync || /usr/bin/waybar &"))
+hl.bind(mainMod .. " + up", hl.dsp.window.fullscreen({ mode = "fullscreen" }))
 -- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 
 -- Move focus with mainMod + arrow keys
@@ -33,12 +33,9 @@ hl.bind(mainMod .. " + j",  hl.dsp.focus({ direction = "down" }))
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
 for i = 1, 9 do
-    hl.bind(mainMod .. " + " .. i,             function()
-        hl.dispatch(hl.dsp.workspace.focus({ workspace = tostring(i)}))
-    end)
-    hl.bind(mainMod .. " + SHIFT + " .. i,     hl.dsp.window.move({ workspace = i }))
+    hl.bind(mainMod .. " + code:" .. (i + 9), hl.dsp.focus({ workspace = i }))
+    hl.bind(mainMod .. " + SHIFT + code:" .. (i + 9), hl.dsp.window.move({ workspace = i }))
 end
-
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S",         hl.dsp.workspace.toggle_special("magic"))

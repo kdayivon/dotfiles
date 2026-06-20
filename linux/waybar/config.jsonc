@@ -1,12 +1,16 @@
 {
 
   "layer": "top",
-  "position": "top", 
+  "position": "bottom", 
   "height": 15,
+  "margin-top": 0,
+  "margin-bottom": 0,
+  "margin-left": 0,
+  "margin-right": 0,
   
   "modules-left":   ["hyprland/workspaces"],
-  "modules-center": [],
-  "modules-right":  ["tray", "custom/weather", "pulseaudio", "clock#date", "clock#time", "custom/power"],
+  "modules-center": ["clock#time"],
+  "modules-right":  ["custom/weather", "pulseaudio", "network", "battery", "custom/notification", "custom/power", "clock#date"],
 
   "wlr/taskbar": {
 	"format": "{icon}",
@@ -24,27 +28,68 @@
   },
 
   "hyprland/workspaces": {
-    // "disable-scroll": true,
-    "sort-by-number": true,
-    "all-outputs": true,
+    "disable-scroll": true,
+    "active-only": false,
     "on-click": "activate",
+    "format": "{icon}",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
-    "format": "{icon}",
+    "sort-by-number": true,
     "format-icons": {
-      "1": "<span color=\"#EBDBB2\">1</span>",
-      "2": "<span color=\"#EBDBB2\">2</span>",
-      "3": "<span color=\"#EBDBB2\">3</span>",
-      "4": "<span color=\"#EBDBB2\">4</span>",
-      "5": "<span color=\"#EBDBB2\">5</span>",
-      "6": "<span color=\"#EBDBB2\">6</span>",
-      "7": "<span color=\"#EBDBB2\">7</span>",
-      "8": "<span color=\"#EBDBB2\">8</span>",
-      "9": "<span color=\"#EBDBB2\">󰣇</span>",
-      "urgent": "",
-      "focused": "",
-      "default": ""
+      "1": "<span>I</span>",
+      "2": "<span>II</span>",
+      "3": "<span>III</span>",
+      "4": "<span>IV</span>",
+      "5": "<span>V</span>",
+      "6": "<span>VI</span>",
+      "7": "<span>VII</span>",
+      "8": "<span>VIII</span>",
+      "9": "<span>IX</span>"
+    },
+    "persistent-workspacees": {
+        "1": [ ],
+        "2": [ ],
+        "3": [ ],
+        "4": [ ],
+        "5": [ ]
     }
+  },
+
+    "battery": {
+        "interval": 60,
+        "states": {
+          "warning": 30,
+          "critical": 15
+        },
+        "format": "{icon} <span size='11pt'>{capacity}%</span>",
+        "format-full": "{icon} <span size='11pt'>{capacity}%</span>",
+        "format-charging": "<span size='12pt'>󱐌</span> <span size='11pt'>{capacity}%</span>",
+        "format-plugged": " <span size='11pt'></span>",
+        "format-alt": "{icon} <span size='11pt'>{time}</span>",
+        "tooltip-format": "{timeTo}\n\n󰠠  Usage: {power:0.1f}W\n󱤅  Condition: {health}%\n󱍸  Total: {cycles} cycles",
+        "format-icons": {
+          "default": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+          ]
+        }
+      },
+
+  "network": {
+    "format-wifi": "<span> </span> {signalStrength}%", 
+    "format-ethernet": "<span>󰀂 </span>",
+    "tooltip-format": "Connected to {essid} via {gwaddr}",
+    "format-linked": "{ifname} (No IP)",
+    "format-disconnected": "<span>󰖪 </span>"
   },
 
   "tray": {
@@ -53,12 +98,17 @@
   },
 
   "clock#time": {
-    "interval": 1,
-    "format": "{:%H:%M} ",
-    "tooltip": false
+    "format": "{:%H:%M}",
+    "tooltip": false,
+    "format-alt": "{:%d/%m}"
   },
 
   "clock#date": {
+    "calendar": {
+        "format": {
+            "today": "<span color='#EA6962'><b>{}</b></span>"
+        }
+    },
     "interval": 10,
     "format": "{:%e %b %y}", // icon: calendar-alt
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
@@ -69,7 +119,7 @@
     "format-muted": "  muted",
     "scroll-step": 5,
     "on-click": "pactl set-sink-mute 0 toggle",
-    "on-click-middle": "pavucontrol",
+    "on-click-right": "pavucontrol",
     "format-icons": {
       "headphone": "  ",
       "hands-free": "  ",
@@ -81,11 +131,40 @@
     }
   },
 
+    "custom/notification": {
+    "tooltip": true,
+    "tooltip-format": "Notifications",
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#EBDBB2'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='#EBDBB2'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='#EBDBB2'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='#EBDBB2'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  "custom/power": {
+    "tooltip": true,
+    "tooltip-format": "Power menu",
+    "format": "<span></span>",
+    "on-click": "power-menu"
+  }, 
+
   "custom/weather": {
     "exec": "python ~/.config/hypr/scripts/weather.py",
     "restart-interval": 300,
     "return-type": "json",
-    "on-click": "xdg-open https://weather.com/en-IN/weather/today/l/$(location_id)"
+    "on-click": "xdg-open https://www.meteo.be/en/belgium"
     // "format-alt": "{alt}",
   }
 }
