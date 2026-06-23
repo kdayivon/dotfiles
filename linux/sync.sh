@@ -22,12 +22,12 @@ sync_back() {
     echo "Updated $dest from ~/.config/$name"
 }
 
-sync_back nvim
-sync_back hypr
-sync_back waybar
-sync_back neofetch
-sync_back rofi
 sync_back fish
+sync_back hypr
+sync_back neofetch
+sync_back nvim
+sync_back rofi
 sync_back swaync
+sync_back waybar
 
 

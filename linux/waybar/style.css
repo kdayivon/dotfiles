@@ -53,8 +53,7 @@ tooltip {
 #network,
 #pulseaudio,
 #battery,
-#custom-weather,
-#tray {
+#custom-weather {
   background: #3C3836;
   padding: 0 0.6em;
   margin-right: 4px;
@@ -64,8 +63,17 @@ tooltip {
   border-radius: 6px;
 }
 
+#custom-tray-toggle {
+    color: #EBDBB2;
+    padding: 0 10px;
+}
+
+.tray-child {
+    margin: 0;
+}
+
 #tray {
-  margin-right: 6px;
+    padding: 0 2px;
 }
 
 #network {

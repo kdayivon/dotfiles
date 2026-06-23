@@ -13,6 +13,9 @@ local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("pkill rofi || ~/.config/hypr/scripts/power-menu.sh"))
+hl.bind(mainMod .. " + U", hl.dsp.exec_cmd("pkill rofi || ~/.config/hypr/scripts/power-profile-menu.sh"))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("hyprlock -c ~/.config/hypr/hyprlock.conf"))
 hl.bind("SHIFT + ALT + T", hl.dsp.exec_cmd(terminal))
 hl.bind("CTRL + SHIFT + W", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))

@@ -8,7 +8,7 @@
   "margin-left": 0,
   "margin-right": 0,
   
-  "modules-left":   ["hyprland/workspaces"],
+  "modules-left":   ["group/tray-expander", "hyprland/workspaces"],
   "modules-center": ["clock#time"],
   "modules-right":  ["custom/weather", "pulseaudio", "network", "battery", "custom/notification", "custom/power", "clock#date"],
 
@@ -47,11 +47,7 @@
       "9": "<span>IX</span>"
     },
     "persistent-workspacees": {
-        "1": [ ],
-        "2": [ ],
-        "3": [ ],
-        "4": [ ],
-        "5": [ ]
+        "*": 5
     }
   },
 
@@ -89,12 +85,32 @@
     "format-ethernet": "<span>󰀂 </span>",
     "tooltip-format": "Connected to {essid} via {gwaddr}",
     "format-linked": "{ifname} (No IP)",
-    "format-disconnected": "<span>󰖪 </span>"
+    "format-disconnected": "<span>󰖪 </span>",
+    "on-click-right": "nm-connection-editor"
+  },
+
+  "group/tray-expander": {
+    "orientation": "horizontal",
+    "drawer": {
+        "transition-duration": 500,
+        "children-class": "tray-child",
+        "transition-left-to-right": false,
+        "click-to-reveal": true
+    },
+    "modules": [
+        "custom/tray-toggle",
+        "tray"
+    ]
+  },
+
+  "custom/tray-toggle": {
+    "format": "",
+    "tooltip-format": "Show hidden icons"
   },
 
   "tray": {
-    "icon-size": 14,
-    "spacing": 0
+    "icon-size": 18,
+    "spacing": 8
   },
 
   "clock#time": {
@@ -157,7 +173,7 @@
     "tooltip": true,
     "tooltip-format": "Power menu",
     "format": "<span></span>",
-    "on-click": "power-menu"
+    "on-click": "~/.config/hypr/scripts/power-menu.sh"
   }, 
 
   "custom/weather": {
