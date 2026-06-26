@@ -4,6 +4,16 @@
       "rev": "a4bef5b4fc1f064f2f673172252028eae18191c9",
       "src": "https://github.com/romgrk/barbar.nvim"
     },
+    "blink.cmp": {
+      "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
+      "src": "https://github.com/saghen/blink.cmp",
+      "version": "1.0.0 - 2.0.0"
+    },
+    "blink.lib": {
+      "rev": "5876dd95deeb70aadbe9f1c0b7117a135061cdac",
+      "src": "https://github.com/saghen/blink.lib",
+      "version": "1.0.0 - 2.0.0"
+    },
     "cmp-nvim-lsp": {
       "rev": "cbc7b02bb99fae35cb42f514762b89b5126651ef",
       "src": "https://github.com/hrsh7th/cmp-nvim-lsp"
@@ -11,6 +21,10 @@
     "fd": {
       "rev": "f7d4d717c287a7834f8721efc0fa91c51d92afee",
       "src": "https://github.com/sharkdp/fd"
+    },
+    "friendly-snippets": {
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
       "rev": "25050e4ed39e628282831d4cbecb1850454ce915",

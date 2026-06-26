@@ -40,18 +40,6 @@ MiniExtra.setup()
 
 vim.keymap.set('n', '<leader>pk', function() MiniExtra.pickers.keymaps() end, { desc = 'search keymaps' })
 
--- mini completions
-local MiniCompletion = require("mini.completion")
-MiniCompletion.setup({
-    lsp_completion = {
-        auto_setup = true,
-        process_items = function(items, base)
-            return MiniCOmpletion.default_process_items(items, base, {
-                fitersort = "fuzzy",
-            })
-        end,
-    }
-})
 
 -- mini diff - git
 local MiniDiff = require("mini.diff")

@@ -2,6 +2,7 @@
 local map = vim.keymap.set
 
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 map('n', '<leader>o', ':update<CR> :source <CR>')
 map('n', '<leader>w', ':write<CR>')
 map('n', '<leader>q', ':quit!<CR>')

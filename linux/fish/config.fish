@@ -6,3 +6,4 @@ function fish_greeting
     neofetch 
 end
 starship init fish | source
+zoxide init fish | source
